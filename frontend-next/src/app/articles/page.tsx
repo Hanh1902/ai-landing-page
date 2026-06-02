@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { getArticles } from "@/lib/api";
 
@@ -80,7 +81,7 @@ export default function ArticlesPage() {
           <p className="text-gray-400 mt-1">{articles.length} bài viết</p>
         </div>
         {admin && (
-          <a
+          <Link
             href="/admin/articles/new"
             className="btn-primary text-white px-5 py-2.5 rounded-xl text-sm font-medium inline-flex items-center gap-2"
           >
@@ -88,7 +89,7 @@ export default function ArticlesPage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
             </svg>
             Tạo bài viết
-          </a>
+          </Link>
         )}
       </div>
 
@@ -106,7 +107,7 @@ export default function ArticlesPage() {
             className="glass-card rounded-2xl p-6 md:p-8 animate-fade-in-up group"
             style={{ animationDelay: `${i * 0.1}s` }}
           >
-            <a href={`/articles/${article.id}`} className="block">
+            <Link href={`/articles/${article.id}`} className="block">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
                   <h2 className="text-xl font-semibold text-white group-hover:text-indigo-300 transition">
@@ -126,10 +127,10 @@ export default function ArticlesPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </div>
-            </a>
+            </Link>
             {admin && (
               <div className="mt-4 pt-4 border-t border-gray-800 flex gap-3">
-                <a
+                <Link
                   href={`/admin/articles/edit/${article.id}`}
                   className="text-sm text-yellow-400 hover:text-yellow-300 flex items-center gap-1"
                 >
@@ -137,7 +138,7 @@ export default function ArticlesPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                   </svg>
                   Sửa
-                </a>
+                </Link>
                 <button
                   onClick={() => handleDelete(article.id)}
                   className="text-sm text-red-400 hover:text-red-300 flex items-center gap-1"
