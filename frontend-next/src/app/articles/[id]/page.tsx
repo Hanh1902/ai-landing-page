@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { getArticle, getComments } from "@/lib/api";
 import { useParams } from "next/navigation";
 
@@ -118,7 +119,7 @@ export default function ArticlePage() {
 
   return (
     <div className="max-w-3xl mx-auto animate-fade-in-up">
-      <a href="/articles" className="text-indigo-400 hover:text-indigo-300 text-sm mb-4 inline-block">← Quay lại</a>
+      <Link href="/articles" className="text-indigo-400 hover:text-indigo-300 text-sm mb-4 inline-block">← Quay lại</Link>
       <h1 className="text-3xl font-bold mb-4">{article.title}</h1>
       <p className="text-sm text-gray-500 mb-8">
         {new Date(article.created_at).toLocaleDateString("vi-VN")}
