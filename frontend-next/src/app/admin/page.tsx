@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { isAdmin } from "@/lib/auth";
 import { supabase } from "@/lib/supabase";
 
@@ -57,12 +58,12 @@ export default function AdminPage() {
       </div>
 
       <div className="space-y-3">
-        <a href="/admin/articles/new" className="block p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-indigo-500/50 transition">
+        <Link href="/admin/articles/new" className="block p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-indigo-500/50 transition">
           ✍️ Tạo bài viết mới
-        </a>
-        <a href="/articles" className="block p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-indigo-500/50 transition">
+        </Link>
+        <Link href="/articles" className="block p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-indigo-500/50 transition">
           📝 Quản lý bài viết
-        </a>
+        </Link>
       </div>
     </div>
   );
