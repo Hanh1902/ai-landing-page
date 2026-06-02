@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -63,7 +64,7 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <Link
               href="/articles"
               className="btn-primary text-white px-8 py-4 rounded-xl font-medium text-lg inline-flex items-center gap-2"
             >
@@ -71,7 +72,7 @@ export default function Home() {
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
-            </a>
+            </Link>
             <a
               href="#subscribe"
               className="px-8 py-4 rounded-xl font-medium text-lg border border-gray-700 text-gray-300 hover:border-indigo-500/50 hover:text-white transition-all"
