@@ -51,6 +51,9 @@ export default function Navbar() {
           <Link href="/articles" className="text-gray-300 hover:text-white transition text-sm font-medium">
             Articles
           </Link>
+          <Link href="/tools" className="text-gray-300 hover:text-white transition text-sm font-medium">
+            AI Tools
+          </Link>
           {admin && (
             <Link href="/admin" className="text-yellow-400 hover:text-yellow-300 transition text-sm font-medium flex items-center gap-1">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -99,6 +102,7 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden glass border-t border-white/5 px-4 py-4 space-y-3">
           <Link href="/articles" className="block text-gray-300 hover:text-white">Articles</Link>
+          <Link href="/tools" className="block text-gray-300 hover:text-white">AI Tools</Link>
           {admin && <Link href="/admin" className="block text-yellow-400">Admin</Link>}
           {user ? (
             <>
