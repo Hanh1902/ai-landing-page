@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import AIChatbot from "@/components/AIChatbot";
 
 export const metadata: Metadata = {
   title: "AI Landing Page",
@@ -42,6 +43,7 @@ export default function RootLayout({
             {children}
           </main>
         </div>
+        <AIChatbot />
       </body>
     </html>
   );
