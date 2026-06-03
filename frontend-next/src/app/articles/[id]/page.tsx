@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { getArticle, getComments } from "@/lib/api";
 import { useParams } from "next/navigation";
+import ReadingProgress, { estimateReadingTime } from "@/components/ReadingProgress";
 
 interface Article {
   id: string;
@@ -119,11 +120,18 @@ export default function ArticlePage() {
 
   return (
     <div className="max-w-3xl mx-auto animate-fade-in-up">
+      <ReadingProgress />
       <Link href="/articles" className="text-indigo-400 hover:text-indigo-300 text-sm mb-4 inline-block">← Quay lại</Link>
       <h1 className="text-3xl font-bold mb-4">{article.title}</h1>
-      <p className="text-sm text-gray-500 mb-8">
-        {new Date(article.created_at).toLocaleDateString("vi-VN")}
-      </p>
+      <div className="flex items-center gap-4 text-sm text-gray-500 mb-8">
+        <span>{new Date(article.created_at).toLocaleDateString("vi-VN")}</span>
+        <span className="flex items-center gap-1">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          {estimateReadingTime(article.content)} phút đọc
+        </span>
+      </div>
       <div className="prose prose-invert max-w-none mb-12 whitespace-pre-wrap text-gray-300 leading-relaxed">
         {article.content}
       </div>
